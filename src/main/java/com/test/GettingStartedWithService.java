@@ -31,18 +31,17 @@ public class GettingStartedWithService {
 		try {
 			driver = new RemoteWebDriver(service.getUrl(), new ChromeOptions());
 			driver.get("http://www.google.com/");
-			Thread.sleep(5000); // allow website to open
+			Thread.sleep(5000); // always pause after every action for browser to load
 			WebElement searchBox = driver.findElement(By.name("q"));
 			searchBox.sendKeys("Hello Tester");
 			searchBox.submit();
-			Thread.sleep(1000); // allow website to open
-
+			Thread.sleep(1000); 
 			driver.quit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+ 
 	}
 
 }
