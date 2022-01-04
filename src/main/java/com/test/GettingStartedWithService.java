@@ -12,14 +12,14 @@ public class GettingStartedWithService {
 
 	public static void main(String[] args) {
 		try {
-			createAndStartService();
+			GettingStartedWithService x = new GettingStartedWithService();
+			x.createAndStartService();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public static void createAndStartService() throws IOException {
+	public void createAndStartService() throws IOException {
 		ChromeDriverService service;
 		WebDriver driver;
 
@@ -31,16 +31,11 @@ public class GettingStartedWithService {
 		try {
 			driver = new RemoteWebDriver(service.getUrl(), new ChromeOptions());
 			driver.get("http://www.google.com/");
-
-			Thread.sleep(5000); // Let the user actually see something!
-
+			Thread.sleep(5000); // allow website to open
 			WebElement searchBox = driver.findElement(By.name("q"));
-
 			searchBox.sendKeys("Hello Tester");
-
 			searchBox.submit();
-
-			Thread.sleep(1000); // Let the user actually see something!
+			Thread.sleep(1000); // allow website to open
 
 			driver.quit();
 		} catch (Exception e) {
